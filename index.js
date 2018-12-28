@@ -6,5 +6,5 @@ app.get('/', (req, res) => {
 })
 
 app.listen(port, () => {
-  console.log(`server has been established at ${post}`)
+  console.log(`server has been established at ${port}`)
 })
