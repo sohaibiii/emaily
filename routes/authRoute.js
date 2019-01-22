@@ -15,6 +15,10 @@ module.exports = app => {
       res.send('Welcome dude here')
     }
   )
+  app.get('/myuserlogout', (req, res) => {
+    req.logout()
+    res.send('Current user logOut')
+  })
   app.get('/myuser', (req, res) => {
     res.send(req.user)
   })
