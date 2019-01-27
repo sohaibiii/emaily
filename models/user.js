@@ -1,6 +1,10 @@
 const mongoose = require('mongoose')
 var userSchema = new mongoose.Schema({
-  googleID: String
+  googleID: String,
+  credits: {
+    type: Number,
+    default: 0,
+  }
 })
 
 var User = mongoose.model('User', userSchema)

@@ -24,23 +24,18 @@ passport.use(
       callbackURL: '/auth/google/callback',
       proxy: true // bcz heroku uses proxy and converts https to http
     },
-    (accessToken, refreshToken, profile, done) => {
+    async (accessToken, refreshToken, profile, done) => {
       console.log(accessToken)
       console.log(profile)
-      User.findOne({ googleID: profile.id })
-        .then(preuser => {
-          if (preuser) {
-            done(null, preuser)
-            console.log('user is already exist')
-          } else {
-            new User({ googleID: profile.id })
-              .save()
-              .then(user => done(null, user))
-          }
-        })
-        .catch(err => {
-          console.log(err)
-        })
+      const preuser = await User.findOne({ googleID: profile.id })
+
+      if (preuser) {
+        done(null, preuser)
+        console.log('user is already exist')
+      } else {
+        const user = new User({ googleID: profile.id }).save()
+        done(null, user)
+      }
     }
   )
 )
