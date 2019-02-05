@@ -20,12 +20,13 @@ export const addCredits = token => async dispatch => {
 
 export const survayStart = (object, history) => {
   return async dispatch => {
-    history.push('/survays')
+    
     const res = await axios.post('/api/survays/new', object)
     dispatch({
       type: AUTH_USER,
       payload: res.data
     })
+    history.push('/survays')
   }
 }
 
