@@ -12,20 +12,26 @@
     "start": "node index.js",
     "server": "nodemon index.js",
     "client": "npm run start --prefix client",
-    "dev": "concurrently \"npm run server\"  \"npm run client\" ",
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
+    "dev": "concurrently \"npm run server\"  \"npm run tunnel\" \"npm run client\"",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client",
+    "tunnel": "lt --port 5000 -s sohaibali"
   },
   "author": "sohaib",
   "license": "MIT",
   "dependencies": {
+    "@sendgrid/mail": "^6.3.1",
     "body-parser": "^1.18.3",
     "cookie-parser": "^1.4.3",
     "cookie-session": "^2.0.0-beta.3",
     "express": "^4.16.4",
     "express-session": "^1.15.6",
+    "forever": "^0.15.3",
+    "localtunnel": "^1.9.1",
+    "lodash": "^4.17.11",
     "mongoose": "^5.4.1",
     "passport": "^0.4.0",
     "passport-google-oauth20": "^1.0.0",
+    "path-parser": "^4.2.0",
     "stripe": "^6.22.0"
   },
   "devDependencies": {

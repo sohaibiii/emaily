@@ -25,11 +25,12 @@ app.use(passport.session()) // it will handle cookiesession
 
 require('./routes/authRoute')(app)
 require('./routes/stripeRoute')(app)
+require('./routes/SurvayRoutes/survayRoutes')(app)
 
 // arrangement of require can also cause critical errors
 
 if (process.env.NODE_ENV == 'production') {
-  app.use(express.static('client/build')) // first serve the assets builds file
+  app.use(express.static('client/build')) // first serve the assets builds file when express server starts
 
   // no route matches it serve the index.html in client
   // * means any route that dosent match wih expresses routes
