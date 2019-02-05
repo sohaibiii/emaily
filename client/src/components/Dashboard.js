@@ -17,14 +17,14 @@ class Dashboard extends Component {
         <div>
           {this.props.survays.map((survay, index) => {
             return (
-              <div class='row'>
-                <div class='col s12 m12 l12'>
-                  <div class='card purple lighten-4 darken-1'>
-                    <div class='card-content white-text'>
-                      <span class='card-title'>{survay.title}</span>
+              <div className='row'>
+                <div className='col s12 m12 l12'>
+                  <div className='card purple lighten-4 darken-1'>
+                    <div className='card-content white-text'>
+                      <span className='card-title'>{survay.title}</span>
                       <p>{survay.body}</p>
                     </div>
-                    <div class='card-action'>
+                    <div className='card-action'>
                       <a href='rwe'>Number of Yes {survay.yes}</a>
                       <a href='wer'>Number of No {survay.no}</a>
                     </div>
